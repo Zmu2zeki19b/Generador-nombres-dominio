@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Nombres de Dominio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul li {
+      background-color: #e6f7ff;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generador de Nombres de Dominio</h1>
+    <button id="generar">Generar Nombres</button>
+    <ul id="resultado"></ul>
+  </div>
+  <script>
+    // Listas de palabras
+    const adjetivos = ["loco", "listo", "horroroso", "increíble"];
+    const sustantivos = ["cuchillo", "camisa", "toro", "palo"];
+    const dominios = [".com", ".net", ".org", ".es"];
+
+    // Referencias del DOM
+    const botonGenerar = document.getElementById("generar");
+    const resultado = document.getElementById("resultado");
+
+    // Función para generar nombres
+    function generarNombres() {
+      resultado.innerHTML = ""; // Limpiar resultados anteriores
+      for (let adjetivo of adjetivos) {
+        for (let sustantivo of sustantivos) {
+          for (let dominio of dominios) {
+            const li = document.createElement("li");
+            li.textContent = `${adjetivo}${sustantivo}${dominio}`;
+            resultado.appendChild(li);
+          }
+        }
+      }
+    }
+
+    // Evento para generar nombres al hacer clic
+    botonGenerar.addEventListener("click", generarNombres);
+  </script>
+</body>
+</html>
